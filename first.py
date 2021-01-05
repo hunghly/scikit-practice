@@ -52,6 +52,7 @@ print(str(classifier.fit(digits.data[:-1], digits.target[:-1])))
 print(str(classifier.predict(digits.data[-1:])))
 # print(classifier.fit(digits.data[:-1], digits[:-1]))
 
+"""
 # Import matplotlib
 import matplotlib.pyplot as plt
 
@@ -69,6 +70,27 @@ for i in range(64):
     ax.imshow(digits.images[i], cmap=plt.cm.binary, interpolation='nearest')
     # label the image with the target value
     ax.text(0, 7, str(digits.target[i]))
+
+# Show the plot
+plt.show()
+"""
+# Import matplotlib
+import matplotlib.pyplot as plt 
+
+# Join the images and target labels in a list
+images_and_labels = list(zip(digits.images, digits.target))
+print(images_and_labels)
+
+# for every element in the list
+for index, (image, label) in enumerate(images_and_labels[:8]):
+    # initialize a subplot of 2X4 at the i+1-th position
+    plt.subplot(2, 4, index + 1)
+    # Don't plot any axes
+    plt.axis('off')
+    # Display images in all subplots 
+    plt.imshow(image, cmap=plt.cm.gray_r,interpolation='nearest')
+    # Add a title to each subplot
+    plt.title('Training: ' + str(label))
 
 # Show the plot
 plt.show()
